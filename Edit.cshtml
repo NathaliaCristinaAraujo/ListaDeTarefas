@@ -1,0 +1,30 @@
+@{
+    Layout = null;
+    Response.ContentEncoding = System.Text.Encoding.UTF8;
+}
+
+@model WebApplication1.Models.Tarefa
+
+@using (Html.BeginForm())
+{
+    <h2>Editar Tarefa</h2>
+
+    <input type="hidden" name="Cd_Tarefa" value="@Model.Cd_Tarefa" />
+    <label>Nome da Tarefa</label>
+    @Html.TextBoxFor(m => m.Nm_Tarefa)
+
+    <br />
+
+    <label>
+        @Html.CheckBoxFor(m => m.Fl_Concluida) Concluído
+    </label>
+
+    <br />
+
+    <input type="submit" value="Salvar" />
+
+
+    <p><a href="/Tarefas">Voltar</a></p>
+
+}
+

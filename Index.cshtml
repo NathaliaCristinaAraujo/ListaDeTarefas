@@ -1,0 +1,30 @@
+@model List<Tarefa>
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/Content/style.css" />
+    <title>Lista de Tarefas</title>
+</head>
+<body>
+    <h1>Lista de Tarefas</h1>
+    <a href="/Tarefa/Create">Nova Tarefa</a>
+    <table>
+        <tr>
+            <th>Descrição</th>
+            <th>Concluída</th>
+            <th>Ações</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Descricao</td>
+                <td>@(item.Concluida ? "Sim" : "Não")</td>
+                <td>
+                    <a href="/Tarefa/Edit/@item.Id">Editar</a> |
+                    <a href="/Tarefa/Delete/@item.Id">Excluir</a>
+                </td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
